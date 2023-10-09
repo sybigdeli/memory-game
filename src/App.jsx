@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section className="body-game">
+        <header>
+          <p>
+            تعداد حرکت : <span>40</span>
+          </p>
+          <p>
+            زمان : <span>2:00</span>
+          </p>
+        </header>
+        <section className="body-game__items">
+          <div className="body-game__cards">1</div>
+          <div className="body-game__cards">2</div>
+          <div className="body-game__cards">3</div>
+          <div className="body-game__cards">4</div>
+          <div className="body-game__cards">5</div>
+          <div className="body-game__cards">6</div>
+          <div className="body-game__cards">7</div>
+          <div className="body-game__cards">8</div>
+          <div className="body-game__cards">9</div>
+          <div className="body-game__cards">10</div>
+          <div className="body-game__cards">11</div>
+          <div className="body-game__cards">12</div>
+          <div className="body-game__cards">13</div>
+          <div className="body-game__cards">14</div>
+          <div className="body-game__cards">15</div>
+          <div className="body-game__cards">16</div>
+        </section>
+        <footer>
+          <button>شروع دوباره</button>
+        </footer>
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
