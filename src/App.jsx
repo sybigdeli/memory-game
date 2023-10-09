@@ -4,7 +4,9 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [items, setItems] = useState(() => (
+    Array.from({ length: 16 }).map((_, i) => ({ id: (i + 1) }))
+  ));
 
   return (
     <>
@@ -18,22 +20,11 @@ function App() {
           </p>
         </header>
         <section className="body-game__items">
-          <div className="body-game__cards">1</div>
-          <div className="body-game__cards">2</div>
-          <div className="body-game__cards">3</div>
-          <div className="body-game__cards">4</div>
-          <div className="body-game__cards">5</div>
-          <div className="body-game__cards">6</div>
-          <div className="body-game__cards">7</div>
-          <div className="body-game__cards">8</div>
-          <div className="body-game__cards">9</div>
-          <div className="body-game__cards">10</div>
-          <div className="body-game__cards">11</div>
-          <div className="body-game__cards">12</div>
-          <div className="body-game__cards">13</div>
-          <div className="body-game__cards">14</div>
-          <div className="body-game__cards">15</div>
-          <div className="body-game__cards">16</div>
+          {items.map((item) => (
+            <div key={item.id} className="body-game__cards">
+              {item.id}
+            </div>
+          ))}
         </section>
         <footer>
           <button>شروع دوباره</button>
