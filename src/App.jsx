@@ -48,8 +48,8 @@ function App() {
           {items.map((item, i) => (
             <Items
               key={item.id}
-              image={item.image}
               index={i + 1}
+              image={item.image}
               onClick={() => handleClick(item)}
               isShow={selectedItemId.includes(item.id)}
             />
