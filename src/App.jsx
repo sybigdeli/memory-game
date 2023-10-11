@@ -21,17 +21,18 @@ const images = [
 ];
 
 function App() {
-  const [selectedItemId , setSelectedItemId] = useState([]);
+  const [selectedItemId, setSelectedItemId] = useState([]);
   const [items, setItems] = useState(() =>
-    Array.from({ length: 16 }).map((_, i) => {
-      return { id: i + 1, image: images[Math.floor(i / 2)] };
-    })
+    Array.from({ length: 16 })
+      .map((_, i) => {
+        return { id: i + 1, image: images[Math.floor(i / 2)] };
+      })
+      .sort(() => Math.random() - 0.5)
   );
-  console.log(items);
 
   const handleClick = (item) => {
-    setSelectedItemId([...selectedItemId , item.id])
-  }
+    setSelectedItemId([...selectedItemId, item.id]);
+  };
   return (
     <>
       <section className="body-game">
@@ -44,8 +45,14 @@ function App() {
           </p>
         </header>
         <section className="body-game__items">
-          {items.map((item,i) => (
-            <Items key={item.id} image={item.image} index={i+1} onClick={() => handleClick(item)} isShow={selectedItemId.includes(item.id)}/>
+          {items.map((item, i) => (
+            <Items
+              key={item.id}
+              image={item.image}
+              index={i + 1}
+              onClick={() => handleClick(item)}
+              isShow={selectedItemId.includes(item.id)}
+            />
           ))}
         </section>
         <footer>
