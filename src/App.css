@@ -34,6 +34,7 @@ body{
   color: white;
 }
 .body-game__items{
+  width: 310px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +55,7 @@ body{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   transition: all 200ms ease;
   cursor: pointer;
+  font-size: 22px;
 }
 .body-game__cards:hover{
   background-color: rgba(255, 0, 0, 0.801);

@@ -25,13 +25,28 @@ function App() {
   const [items, setItems] = useState(() =>
     Array.from({ length: 16 })
       .map((_, i) => {
-        return { id: i + 1, image: images[Math.floor(i / 2)] };
+        return {
+          id: i + 1,
+          identifier: Math.floor(i / 2),
+          image: images[Math.floor(i / 2)],
+        };
       })
       .sort(() => Math.random() - 0.5)
   );
 
   const handleClick = (item) => {
     setSelectedItemId([...selectedItemId, item.id]);
+
+    if (selectedItemId.length % 2 !== 0) {
+      const lastItemId = selectedItemId[selectedItemId.length - 1];
+      const lastItem = items.find((item) => item.id === lastItemId);
+
+      if (item.identifier !== lastItem.identifier) {
+        setTimeout(() => {
+          setSelectedItemId(selectedItemId.filter(item => item !== lastItemId))
+        },1000)
+      } 
+    }
   };
   return (
     <>
