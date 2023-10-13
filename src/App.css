@@ -77,7 +77,23 @@ footer > button{
   color: white;
   transition: all 200ms ease;
 }
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 footer > button:hover{
   background-color: rgba(255, 255, 0, 0.493);
 
+}
+.gameover{
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
 }
