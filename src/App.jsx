@@ -77,27 +77,32 @@ function App() {
 
   const handleClick = (item) => {
     if (pending.current) return;
-    setMove(move - 1);
-    setSelectedItemId([...selectedItemId, item.id]);
 
-    if (selectedItemId.length % 2 !== 0) {
-      pending.current = true;
-      const lastItemId = selectedItemId[selectedItemId.length - 1];
-      const lastItem = items.find((item) => item.id === lastItemId);
-
-      if (item.identifier !== lastItem.identifier) {
-        setTimeout(() => {
-          setSelectedItemId(
-            selectedItemId.filter((item) => item !== lastItemId)
-          );
+    if (move !== 0){
+      setMove(move - 1);
+      setSelectedItemId([...selectedItemId, item.id]);
+  
+      if (selectedItemId.length % 2 !== 0) {
+        pending.current = true;
+        const lastItemId = selectedItemId[selectedItemId.length - 1];
+        const lastItem = items.find((item) => item.id === lastItemId);
+  
+        if (item.identifier !== lastItem.identifier) {
+          setTimeout(() => {
+            setSelectedItemId(
+              selectedItemId.filter((item) => item !== lastItemId)
+            );
+            pending.current = false;
+          }, 1000);
+        } else {
           pending.current = false;
-        }, 1000);
+        }
       } else {
         pending.current = false;
       }
-    } else {
-      pending.current = false;
     }
+
+
   };
 
   return (
