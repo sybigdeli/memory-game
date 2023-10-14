@@ -23,7 +23,7 @@ const images = [
 ];
 
 const generateRandom = () => {
-  Array.from({ length: 16 })
+  return Array.from({ length: 16 })
     .map((_, i) => {
       return {
         id: i + 1,
@@ -49,36 +49,31 @@ function App() {
 
     setItems(newItems);
 
-    setTimeout(() => {
-      selectedItemId(
-        newItems.map((i) => {
-          i.id;
-        })
-      );
-    }, 0);
+    // setTimeout(() => {
+    //   selectedItemId(
+    //     newItems.map((i) => {
+    //       i.id;
+    //     })
+    //   );
+    // }, 0);
 
     setTimeout(() => {
-      selectedItemId([]);
+      setSelectedItemId([]);
     }, 1000);
 
+    //   const timer = setInterval(() => {
+    //     setGameTime((t) => t - 1);
+    //   }, 1000);
+    //   setHandleTimer(timer);
+    // };
 
-    const timer = setInterval(() => {
-      setGameTime((t) => t - 1);
-    }, 1000);
-    setHandleTimer(timer);
-
-
+    // useEffect(() => {
+    //   if (gameTime < 0) {
+    //     clearInterval(timer);
+    //   }
+    // }, [gameTime]);
   };
 
-  useEffect(() => {
-    if (gameTime < 0) {
-      clearInterval(timer);
-    }
-  }, [gameTime]);
-
-  const handleStartAgain = () => {
-    location.reload();
-  };
   const handleClick = (item) => {
     if (pending.current) return;
     setMove(move - 1);
@@ -96,6 +91,8 @@ function App() {
           );
           pending.current = false;
         }, 1000);
+      } else {
+        pending.current = false;
       }
     } else {
       pending.current = false;
@@ -125,8 +122,7 @@ function App() {
           ))}
         </section>
         <footer>
-          <button onClick={handleStartGame}>شروع گیم</button>
-          <button onClick={handleStartAgain}>شروع دوباره</button>
+          <button onClick={handleStartGame}>شروع دوباره</button>
         </footer>
       </section>
       {move == 0 && <Gameover />}
