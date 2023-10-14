@@ -44,6 +44,7 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleStartGame = () => {
+    setMove(25);
     const newItems = generateRandom();
     setSelectedItemId(newItems.map((i) => i.id));
 
